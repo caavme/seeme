@@ -970,6 +970,50 @@ async function exportPDF() {
     }
 }
 
+// Export to HTML
+async function exportHTML() {
+    const btn = event.target.closest('button');
+    btn.classList.add('btn-loading');
+    btn.disabled = true;
+
+    try {
+        showToast('Generating HTML...', 'info');
+
+        const response = await fetch('/api/export/html');
+
+        if (response.ok) {
+            const blob = await response.blob();
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+
+            // Use current filename for HTML name
+            let htmlName = 'resume.html';
+            if (currentFilename) {
+                const baseName = currentFilename.replace('.json', '');
+                htmlName = `${baseName}.html`;
+            }
+
+            a.download = htmlName;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+
+            showToast('HTML exported successfully!');
+        } else {
+            throw new Error('Export failed');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        showToast('Error exporting HTML', 'error');
+    } finally {
+        btn.classList.remove('btn-loading');
+        btn.disabled = false;
+    }
+}
+
 // Utility function to clean HTML
 function cleanHTML(text) {
     if (!text) return '';

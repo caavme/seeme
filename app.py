@@ -623,6 +623,280 @@ class ResumeWebApp:
             print(f"PDF Creation Error: {str(e)}")
             print(f"Full traceback: {traceback.format_exc()}")
             raise e
+    
+def create_html(self):
+    """Create clean, styled HTML resume for copy/paste into static sites"""
+    try:
+        # Sort work and education by date before HTML generation
+        self.sort_work_by_date()
+        self.sort_education_by_date()
+        
+        basics = self.resume_data.get("basics", {})
+        
+        # Generate HTML content
+        html_content = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>''' + (basics.get("name", "Resume") + " - Resume") + '''</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #ffffff;
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 30px;
+        }
+        
+        .name {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .title {
+            font-size: 1.3em;
+            color: #3498db;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .contact-info {
+            color: #7f8c8d;
+            font-size: 1em;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #3498db;
+        }
+        
+        .job, .education-item {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 3px solid #3498db;
+        }
+        
+        .job-title, .edu-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .company, .institution {
+            font-size: 1em;
+            color: #3498db;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .date-range {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        .current-badge {
+            background: #27ae60;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .skill-tag {
+            background: #ecf0f1;
+            color: #2c3e50;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+            border: 1px solid #bdc3c7;
+        }
+        
+        @media (max-width: 600px) {
+            body { padding: 20px 15px; }
+            .name { font-size: 2em; }
+            .contact-info { flex-direction: column; align-items: center; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">'''
+        
+        # Add name, title, contact info
+        if basics.get("name"):
+            html_content += f'\n        <h1 class="name">{basics["name"]}</h1>'
+        
+        if basics.get("label"):
+            html_content += f'\n        <div class="title">{basics["label"]}</div>'
+        
+        # Contact info
+        contact_info = []
+        if basics.get("email"):
+            contact_info.append(f'📧 {basics["email"]}')
+        if basics.get("phone"):
+            contact_info.append(f'📱 {basics["phone"]}')
+        if basics.get("location", {}).get("city"):
+            contact_info.append(f'📍 {basics["location"]["city"]}')
+        
+        if contact_info:
+            html_content += f'\n        <div class="contact-info">{" • ".join(contact_info)}</div>'
+        
+        html_content += '\n    </header>\n'
+        
+        # Professional Summary
+        if basics.get("summary") and basics["summary"].strip():
+            clean_summary = self.clean_html(basics["summary"])
+            html_content += f'''
+    <section class="section">
+        <h2 class="section-title">Professional Summary</h2>
+        <div>{clean_summary}</div>
+    </section>'''
+        
+        # Work Experience
+        work_items = self.resume_data.get("work", [])
+        if work_items:
+            html_content += '\n    <section class="section">\n        <h2 class="section-title">Professional Experience</h2>'
+            
+            for work in work_items:
+                current_badge = '<span class="current-badge">Current</span>' if work.get("isWorkingHere") else ''
+                start_date = self.format_date(work.get("startDate", ""))
+                end_date = self.format_date(work.get("endDate", "")) if work.get("endDate") else "Present"
+                
+                html_content += f'''
+        <div class="job">
+            <div class="job-title">{work.get("position", "Position")}{current_badge}</div>
+            <div class="company">{work.get("name", "Company")}</div>'''
+                
+                if start_date:
+                    html_content += f'\n            <div class="date-range">{start_date} - {end_date}</div>'
+                
+                if work.get("summary") and work["summary"].strip():
+                    clean_summary = self.clean_html(work["summary"])
+                    if '•' in clean_summary:
+                        bullets = [bullet.strip() for bullet in clean_summary.split('•') if bullet.strip()]
+                        html_content += '\n            <ul>'
+                        for bullet in bullets:
+                            html_content += f'\n                <li>{bullet}</li>'
+                        html_content += '\n            </ul>'
+                    else:
+                        html_content += f'\n            <div>{clean_summary}</div>'
+                
+                html_content += '\n        </div>'
+            
+            html_content += '\n    </section>'
+        
+        # Education
+        education_items = self.resume_data.get("education", [])
+        if education_items:
+            html_content += '\n    <section class="section">\n        <h2 class="section-title">Education</h2>'
+            
+            for education in education_items:
+                current_badge = '<span class="current-badge">Current</span>' if education.get("isStudyingHere") else ''
+                start_date = self.format_date(education.get("startDate", ""))
+                end_date = self.format_date(education.get("endDate", "")) if education.get("endDate") else "Present"
+                
+                degree_info = []
+                if education.get("studyType"):
+                    degree_info.append(education["studyType"])
+                if education.get("area"):
+                    degree_info.append(f"in {education['area']}")
+                
+                html_content += f'''
+        <div class="education-item">
+            <div class="edu-title">{education.get("institution", "Institution")}{current_badge}</div>'''
+                
+                if degree_info:
+                    html_content += f'\n            <div class="institution">{" ".join(degree_info)}</div>'
+                
+                if start_date:
+                    html_content += f'\n            <div class="date-range">{start_date} - {end_date}</div>'
+                
+                if education.get("gpa"):
+                    html_content += f'\n            <div>GPA: {education["gpa"]}</div>'
+                
+                html_content += '\n        </div>'
+            
+            html_content += '\n    </section>'
+        
+        # Skills
+        skills = self.resume_data.get("skills", {})
+        technologies = skills.get("technologies", [])
+        if technologies:
+            html_content += '''
+    <section class="section">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-list">'''
+            
+            skill_names = [tech.get("name", "") for tech in technologies if tech.get("name")]
+            for skill in skill_names:
+                html_content += f'\n            <span class="skill-tag">{skill}</span>'
+            
+            html_content += '\n        </div>\n    </section>'
+        
+        # Close HTML
+        html_content += '\n</body>\n</html>'
+        
+        return html_content
+        
+    except Exception as e:
+        print(f"HTML Creation Error: {str(e)}")
+        print(f"Full traceback: {traceback.format_exc()}")
+        raise e
 
 # Initialize the resume app
 resume_app = ResumeWebApp()
@@ -785,6 +1059,37 @@ def export_pdf():
         print(f"Export PDF Error: {str(e)}")
         print(f"Full traceback: {traceback.format_exc()}")
         return jsonify({"success": False, "error": f"PDF export failed: {str(e)}"}), 500
+
+@app.route('/api/export/html')
+def export_html():
+    """Export resume as HTML file for copy/paste into static sites"""
+    try:
+        html_content = resume_app.create_html()
+        
+        # Generate filename
+        html_name = 'resume.html'
+        if resume_app.current_filename:
+            base_name = os.path.splitext(resume_app.current_filename)[0]
+            html_name = f"{base_name}.html"
+        elif resume_app.resume_data.get('basics', {}).get('name'):
+            name = resume_app.resume_data['basics']['name']
+            clean_name = re.sub(r'[^\w\s-]', '', name).strip().replace(' ', '_')
+            html_name = f"{clean_name}_resume.html"
+        
+        # Create HTML file in memory
+        html_buffer = io.BytesIO(html_content.encode('utf-8'))
+        html_buffer.seek(0)
+        
+        return send_file(
+            html_buffer,
+            as_attachment=True,
+            download_name=html_name,
+            mimetype='text/html'
+        )
+    except Exception as e:
+        print(f"Export HTML Error: {str(e)}")
+        print(f"Full traceback: {traceback.format_exc()}")
+        return jsonify({"success": False, "error": f"HTML export failed: {str(e)}"}), 500
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
