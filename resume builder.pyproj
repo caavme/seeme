@@ -25,6 +25,7 @@
     <Compile Include="resume_builder.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="README.md" />
     <Content Include="static\js\app.js" />
     <Content Include="templates\base.html" />
     <Content Include="templates\index.html" />
