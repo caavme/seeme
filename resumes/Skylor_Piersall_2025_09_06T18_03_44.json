@@ -1,0 +1,212 @@
+{
+  "basics": {
+    "name": "Skylor Piersall",
+    "label": "Operations Specialist",
+    "image": "",
+    "email": "skylorcpiersall@gmail.com",
+    "phone": "574-354-4976",
+    "url": "",
+    "summary": "<p>Dedicated and versatile professional with experience spanning healthcare, food service management, manufacturing, and operations support. Skilled in team leadership, hands-on production, order fulfillment, and customer service, with a proven ability to adapt to diverse work environments. Recognized for reliability, attention to detail, and a strong work ethic in both independent and collaborative roles.</p>",
+    "location": {
+      "address": "",
+      "postalCode": "",
+      "city": "Cape Coral, FL",
+      "countryCode": "",
+      "region": ""
+    },
+    "relExp": "",
+    "totalExp": "",
+    "objective": "<p>Seeking a challenging position where I can leverage my diverse experience in operations, customer service, and team leadership to contribute to organizational efficiency, growth, and overall success.</p>",
+    "profiles": [
+      {
+        "network": "linkedin",
+        "username": "sadanandpai",
+        "url": ""
+      },
+      {
+        "network": "twitter",
+        "username": "sadanand_pai",
+        "url": ""
+      },
+      {
+        "network": "github",
+        "username": "sadanandpai",
+        "url": ""
+      },
+      {
+        "network": "hackerrank",
+        "username": "paicube",
+        "url": ""
+      },
+      {
+        "network": "hackerearth",
+        "username": "sadanandpai",
+        "url": ""
+      },
+      {
+        "network": "codechef",
+        "username": "sadanandpai",
+        "url": ""
+      },
+      {
+        "network": "leetcode",
+        "username": "sadanandpai",
+        "url": ""
+      },
+      {
+        "network": "cssbattle",
+        "username": "janedoe",
+        "url": ""
+      }
+    ]
+  },
+    "skills": {
+        "languages": [],
+        "frameworks": [],
+        "technologies": [
+            {
+                "name": "Customer Service",
+                "level": 0
+            },
+            {
+                "name": "Shift Management",
+                "level": 0
+            },
+            {
+                "name": "Vitals",
+                "level": 0
+            },
+            {
+                "name": "Patient Care",
+                "level": 0
+            },
+            {
+                "name": "Communication",
+                "level": 0
+            },
+            {
+                "name": "Sales",
+                "level": 0
+            },
+            {
+                "name": "Leadership",
+                "level": 0
+            },
+            {
+                "name": "Office Management",
+                "level": 0
+            }
+        ],
+        "libraries": [],
+        "databases": [],
+        "practices": [],
+        "tools": []
+    },
+    "work": [
+        {
+            "id": "",
+            "name": "5 Star Cleaning Services",
+            "position": "Professional Cleaner",
+            "startDate": "2023-05-01T04:00:00.000Z",
+            "endDate": null,
+            "isWorkingHere": true,
+            "summary": "<p>Delivered professional cleaning services across multiple business settings, maintaining high\nstandards of safety and sanitation. Ensured work areas were consistently well-maintained, organized, and compliant with company and client expectations. Provided exceptional customer service, addressing client needs promptly and fostering positive professional relationships.</p>",
+            "highlights": [],
+            "url": "",
+            "years": ""
+        },
+        {
+            "id": "",
+            "name": "Brock",
+            "position": "Order Fulfillment Associate",
+            "startDate": "2022-05-01T04:00:00.000Z",
+            "endDate": "2023-05-01T04:00:00.000Z",
+            "isWorkingHere": false,
+            "summary": "<p>Prepared and packaged bolts and parts according to customer specifications, maintaining strict\naccuracy and attention to detail. Inspected components for quality and consistency, ensuring all orders met company standards before shipment. Coordinated with team members to meet deadlines and ensure timely order fulfillment, supporting overall operational efficiency.</p>",
+            "highlights": [],
+            "url": "",
+            "years": ""
+        },
+        {
+            "id": "",
+            "name": "Superior Cleaning",
+            "position": "Professional Cleaner",
+            "startDate": "2021-02-01T04:00:00.000Z",
+            "endDate": "2022-05-01T04:00:00.000Z",
+            "isWorkingHere": false,
+            "summary": "<p>Delivered professional cleaning services across multiple business settings, maintaining high\nstandards of safety and sanitation. Ensured work areas were consistently well-maintained, organized, and compliant with company and client expectations. Provided exceptional customer service, addressing client needs promptly and fostering positive professional relationships.</p>",
+            "highlights": [],
+            "url": "",
+            "years": ""
+        },
+        {
+            "id": "",
+            "name": "Heartland RV",
+            "position": "Order Fulfillment Associate",
+            "startDate": "2020-02-01T04:00:00.000Z",
+            "endDate": "2021-02-01T04:00:00.000Z",
+            "isWorkingHere": false,
+            "summary": "<p>Prepared and assembled components for RV slideouts, ensuring each part met precise specifications and quality standards. Collaborated with production team to maintain workflow efficiency and meet daily manufacturing targets. Conducted inspections on assembled parts to identify and address defects, promoting product reliability and safety</p>",
+            "highlights": [],
+            "url": "",
+            "years": ""
+        },
+        {
+            "id": "",
+            "name": "Senior Helpers",
+            "position": "Certified Nursing Assistant",
+            "startDate": "2018-09-01T04:00:00.000Z",
+            "endDate": "2020-02-01T04:00:00.000Z",
+            "isWorkingHere": false,
+            "summary": "<p>Delivered compassionate, hands-on care to patients, assisting with daily living activities such as\nbathing, dressing, and mobility. Monitored patient conditions and promptly reported changes to medical staff, supporting timely and effective healthcare interventions. Assisted healthcare professionals with routine medical tasks, ensuring procedures were performed safely and efficiently.</p>",
+            "highlights": [],
+            "url": "",
+            "years": ""
+        },
+        {
+            "id": "",
+            "name": "Forte Residential",
+            "position": "Certified Nursing Assistant",
+            "startDate": "2017-01-01T04:00:00.000Z",
+            "endDate": "2018-09-01T04:00:00.000Z",
+            "isWorkingHere": false,
+            "summary": "<p>Delivered compassionate, hands-on care to patients, assisting with daily living activities such as\nbathing, dressing, and mobility. Monitored patient conditions and promptly reported changes to medical staff, supporting timely and effective healthcare interventions. Assisted healthcare professionals with routine medical tasks, ensuring procedures were performed safely and efficiently.</p>",
+            "highlights": [],
+            "url": "",
+            "years": ""
+        },
+        {
+            "id": "",
+            "name": "Pizza King",
+            "position": "Shift Leader",
+            "startDate": "2015-05-01T04:00:00.000Z",
+            "endDate": "2017-01-01T04:00:00.000Z",
+            "isWorkingHere": false,
+            "summary": "<p>Managed daily operations in a high-volume pizza restaurant, ensuring efficiency and consistent\nservice quality. Supervised, trained, and coordinated staff, fostering teamwork and maintaining\nproductivity during all shifts. Monitored food preparation and service standards to guarantee customer satisfaction and adherence to health regulations. Addressed customer concerns promptly and professionally, promoting a positive dining experience.</p>",
+            "highlights": [],
+            "url": "",
+            "years": ""
+        }
+    ],
+    "education": [
+        {
+            "id": "",
+            "institution": "Wawasee High School",
+            "area": "General Studies",
+            "studyType": "High School Diploma",
+            "startDate": "2012-08-01T04:00:00.000Z",
+            "endDate": "2015-05-01T04:00:00.000Z",
+            "isStudyingHere": false,
+            "gpa": "",
+            "courses": [],
+            "summary": "",
+            "url": ""
+        }
+    ],
+    "activities": {
+        "involvements": "",
+        "achievements": ""
+    },
+    "volunteer": [],
+    "awards": []
+}

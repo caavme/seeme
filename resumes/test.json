@@ -1,0 +1,192 @@
+{
+    "basics": {
+        "name": "Chezney Piersall",
+        "label": "Low Voltage Technician",
+        "image": "",
+        "email": "chezney@nexvolt.llc",
+        "phone": "574-354-4798",
+        "url": "",
+        "summary": "<p>I am a low-voltage technician that specializes in low-voltage systems, fiber optics, structured cabling, \nand ISP infrastructure for residential and commercial projects, with a \nproven history in telecommunications contracting through ISPs and a \ncommitment to exceptional customer service.</p>",
+        "location": {
+            "address": "",
+            "postalCode": "",
+            "city": "Cape Coral, FL",
+            "countryCode": "",
+            "region": ""
+        },
+        "relExp": "",
+        "totalExp": "",
+        "objective": "<p>My objective is to secure a long-term position within a reputable organization that offers opportunities for professional growth and advancement. I aim to contribute meaningfully by leveraging my current skills and expertise, while also committing to continuous learning and development to further enhance my capabilities and support the organization’s success.</p>",
+        "profiles": [
+            {
+                "network": "linkedin",
+                "username": "sadanandpai",
+                "url": ""
+            },
+            {
+                "network": "twitter",
+                "username": "sadanand_pai",
+                "url": ""
+            },
+            {
+                "network": "github",
+                "username": "sadanandpai",
+                "url": ""
+            },
+            {
+                "network": "hackerrank",
+                "username": "paicube",
+                "url": ""
+            },
+            {
+                "network": "hackerearth",
+                "username": "sadanandpai",
+                "url": ""
+            },
+            {
+                "network": "codechef",
+                "username": "sadanandpai",
+                "url": ""
+            },
+            {
+                "network": "leetcode",
+                "username": "sadanandpai",
+                "url": ""
+            },
+            {
+                "network": "cssbattle",
+                "username": "janedoe",
+                "url": ""
+            }
+        ]
+    },
+    "skills": {
+        "languages": [],
+        "frameworks": [],
+        "technologies": [
+            {
+                "name": "FTTH",
+                "level": 0
+            },
+            {
+                "name": "Fiber Optic Drop/Bury",
+                "level": 0
+            },
+            {
+                "name": "CCTV",
+                "level": 0
+            },
+            {
+                "name": "Access Control",
+                "level": 0
+            },
+            {
+                "name": "Structured Cabling",
+                "level": 0
+            }
+        ],
+        "libraries": [],
+        "databases": [],
+        "practices": [],
+        "tools": []
+    },
+    "work": [
+        {
+            "id": "1",
+            "name": "Bevo Security Solutions",
+            "position": "Low Voltage Technician",
+            "url": "",
+            "startDate": "2025-05-07T04:00:00.000Z",
+            "isWorkingHere": true,
+            "endDate": null,
+            "highlights": [
+                "* Worked on a team of 5 developers to develop a web application for a client"
+            ],
+            "summary": "<p>•&nbsp; Installed, configured, and maintained low voltage systems, including CCTV, access control, and gate operator systems.<br>•&nbsp; Performed wiring, programming, and troubleshooting to ensure reliable operation of security and access systems.<br>•&nbsp; Conducted site assessments to determine optimal placement and integration of low voltage equipment.<br>•&nbsp; Ensured compliance with safety standards and local regulations during installations and repairs.<br>•&nbsp; Provided customer training and technical support to resolve system issues and enhance user experience.</p>",
+            "years": ""
+        },
+        {
+            "id": "2",
+            "name": "Comcast Xfinity",
+            "position": "MDU/Commercial Installation Technician",
+            "url": "",
+            "startDate": "2024-04-08T04:00:00.000Z",
+            "isWorkingHere": false,
+            "endDate": "2025-05-07T04:00:00.000Z",
+            "highlights": [
+                "* Worked on a team of 5 developers to develop a web application for a client"
+            ],
+            "summary": "<p>•&nbsp; Installed, tested, and maintained fiber-to-the-home (FTTH) networks for high-speed internet, voice, and video services.<br>•&nbsp; Performed splicing, termination, and troubleshooting of fiber optic cables to ensure optimal connectivity.<br>•&nbsp; Conducted site surveys and prepared infrastructure for fiber optic installations in residential and commercial settings.<br></p>",
+            "years": "2 years"
+        },
+        {
+            "id": "3",
+            "name": "Piersall Link",
+            "position": "Owner",
+            "url": "",
+            "startDate": "2022-02-16T05:00:00.000Z",
+            "isWorkingHere": false,
+            "endDate": "2024-04-08T04:00:00.000Z",
+            "highlights": [
+                "* Worked on a team of 5 developers to develop a web application for a client"
+            ],
+            "summary": "<p>•&nbsp; Ensured compliance with safety standards and industry regulations during installation and maintenance processes.<br>•&nbsp; Collaborated with network technicians and provided customer support to resolve connectivity issues efficiently.</p><p>•&nbsp; Collaborated with utility teams and communicated with customers to ensure timely project completion and satisfaction.</p>",
+            "years": ""
+        },
+        {
+            "id": "0.21041932434265587",
+            "name": "Encore Trailers",
+            "position": "Group Leader - Electrical",
+            "startDate": "2021-07-14T04:00:00.000Z",
+            "isWorkingHere": false,
+            "endDate": "2022-02-10T05:00:00.000Z",
+            "summary": "<p>•&nbsp; Supervised and coordinated electrical installation and maintenance teams to ensure efficient production processes.<br>•&nbsp; Oversaw wiring, system installations, and quality control for RV electrical components.<br>•&nbsp; Trained and mentored staff on safety protocols and technical procedures.<br></p>",
+            "url": "",
+            "years": "",
+            "highlights": []
+        },
+        {
+            "id": "0.9989329748062996",
+            "name": "R.I.C",
+            "position": "Fiber Installation Technician",
+            "startDate": "2018-06-04T04:00:00.000Z",
+            "isWorkingHere": false,
+            "endDate": "2021-07-21T04:00:00.000Z",
+            "summary": "<p>•&nbsp; Installed, tested, and maintained fiber-to-the-home (FTTH) networks for high-speed internet, voice, and video services.<br>•&nbsp; Performed splicing, termination, and troubleshooting of fiber optic cables to ensure optimal connectivity.<br>•&nbsp; Conducted site surveys and prepared infrastructure for fiber optic installations in residential and commercial settings.<br></p><p><br></p>",
+            "url": "",
+            "years": "",
+            "highlights": []
+        },
+        {
+            "id": "0.2521382835901753",
+            "name": "MediaCom",
+            "position": "Broadband Specialist III",
+            "startDate": "2016-09-04T04:00:00.000Z",
+            "isWorkingHere": false,
+            "endDate": "2018-06-11T04:00:00.000Z",
+            "summary": "<p>•&nbsp; Performed advanced installations, maintenance, and repairs of cable television, broadband, and phone services in customer homes and businesses.<br>•&nbsp; Diagnosed and resolved complex network issues, ensuring optimal system performance and customer satisfaction.<br>•&nbsp; Trained and mentored junior technicians on technical procedures, safety protocols, and customer service standards.<br>•&nbsp; Conducted routine maintenance and upgrades of HFC (Hybrid Fiber-Coaxial) plant from node to tap.<br>•&nbsp; Collaborated with technical teams to address outages and ensure reliable network connectivity.</p>",
+            "url": "",
+            "years": "",
+            "highlights": []
+        },
+        {
+            "id": "0.42900673149845836",
+            "name": "Bison Coach",
+            "position": "Group Leader - Electrical",
+            "startDate": "2013-12-19T05:00:00.000Z",
+            "isWorkingHere": false,
+            "endDate": "2016-09-05T04:00:00.000Z",
+            "summary": "<p>•&nbsp; Collaborated with production managers to meet project deadlines and maintain quality standards.<br>•&nbsp; Troubleshot and resolved electrical issues to minimize downtime and enhance operational efficiency.</p>",
+            "url": "",
+            "years": "",
+            "highlights": []
+        }
+    ],
+    "education": [],
+    "activities": {
+        "involvements": "",
+        "achievements": ""
+    },
+    "volunteer": [],
+    "awards": []
+}

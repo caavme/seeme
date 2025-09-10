@@ -1,0 +1,163 @@
+{
+    "basics": {
+        "name": "Skylor Piersall",
+        "label": "Patient Care Specialist",
+        "email": "skylorcpiersall@gmail.com",
+        "phone": "574-354-4976",
+        "summary": "<p>Dedicated and versatile professional with experience spanning healthcare, food service management, manufacturing, and operations support. Skilled in team leadership, hands-on production, order fulfillment, and customer service, with a proven ability to adapt to diverse work environments. Recognized for reliability, attention to detail, and a strong work ethic in both independent and collaborative roles.</p>",
+        "objective": "<p>Seeking a challenging position where I can leverage my diverse experience in operations, customer service, and team leadership to contribute to organizational efficiency, growth, and overall success.</p>",
+        "location": {
+            "city": "Cape Coral, FL"
+        },
+        "profiles": []
+    },
+    "work": [
+        {
+            "id": "",
+            "name": "Teen Parents Succeeding",
+            "position": "Daycare Provider",
+            "startDate": "2014-11-01T04:00:00.000Z",
+            "endDate": "2015-06-01T04:00:00.000Z",
+            "isWorkingHere": false,
+            "summary": "<p>Assisted in supervising and caring for children in a safe, nurturing, and engaging environment.\nSupported daily routines including meals, activities, and rest periods while promoting social and educational development.\nMaintained a clean, organized, and child-friendly space, ensuring compliance with health and safety standards.</p>",
+            "highlights": [],
+            "url": "",
+            "years": ""
+        },
+        {
+            "id": "",
+            "name": "Millers Marry Manor",
+            "position": "Certified Nursing Assistant",
+            "startDate": "2015-06-01T04:00:00.000Z",
+            "endDate": "2017-01-01T04:00:00.000Z",
+            "isWorkingHere": false,
+            "summary": "<p>Delivered compassionate patient care by assisting with daily living activities such as bathing, dressing, feeding, and mobility.\nMonitored and documented vital signs, promptly reporting changes in patient conditions to nursing staff.\nSupported medical professionals with routine procedures, ensuring patient comfort and safety.</p>",
+            "highlights": [],
+            "url": "",
+            "years": ""
+        },
+        {
+            "id": "",
+            "name": "Hacienda Mexican Restaurant ",
+            "position": "Waitress",
+            "startDate": "2017-01-01T04:00:00.000Z",
+            "endDate": "2018-02-01T04:00:00.000Z",
+            "isWorkingHere": false,
+            "summary": "<p>Provided attentive customer service by taking orders, delivering food and beverages, and ensuring guest satisfaction.\nMaintained knowledge of menu items and specials to answer questions and make recommendations.\nHandled transactions accurately while maintaining a clean and organized dining area.</p>",
+            "highlights": [],
+            "url": "",
+            "years": ""
+        },
+        {
+            "id": "",
+            "name": "Forte Residential",
+            "position": "Caregiver",
+            "startDate": "2018-02-01T04:00:00.000Z",
+            "endDate": "2019-08-01T04:00:00.000Z",
+            "isWorkingHere": false,
+            "summary": "<p>Assisted elderly residents with daily living activities, including personal hygiene, meals, mobility, and medication reminders.\nProvided companionship and emotional support, fostering a positive and respectful environment.\nMonitored health and safety needs, promptly reporting concerns to supervisors or medical staff.</p>",
+            "highlights": [],
+            "url": "",
+            "years": ""
+        },
+        {
+            "id": "",
+            "name": "Warsaw Meadows Care Center",
+            "position": "Activity Director",
+            "startDate": "2019-08-01T04:00:00.000Z",
+            "endDate": "2021-02-01T04:00:00.000Z",
+            "isWorkingHere": false,
+            "summary": "<p>Planned, organized, and led recreational and therapeutic activities to enhance residents’ physical, emotional, and social well-being.\nCoordinated with healthcare staff to design programs tailored to individual needs and rehabilitation goals.\nEncouraged participation through engaging events that promoted mobility, cognitive function, and community involvement.</p>",
+            "highlights": [],
+            "url": "",
+            "years": ""
+        },
+        {
+            "id": "",
+            "name": "Superior Cleaning",
+            "position": "Professional Cleaner",
+            "startDate": "2021-02-01T04:00:00.000Z",
+            "endDate": "2022-05-01T04:00:00.000Z",
+            "isWorkingHere": false,
+            "summary": "<p>Delivered professional cleaning services across multiple business settings, maintaining high standards of safety and sanitation.\nEnsured work areas were consistently well-maintained, organized, and compliant with company and client expectations.\nProvided exceptional customer service, addressing client needs promptly and fostering positive professional relationships.</p>",
+            "highlights": [],
+            "url": "",
+            "years": ""
+        },
+        {
+            "id": "",
+            "name": "Heartland RV",
+            "position": "Order Fufillment Associate",
+            "startDate": "2022-05-01T04:00:00.000Z",
+            "endDate": "2023-05-01T04:00:00.000Z",
+            "isWorkingHere": false,
+            "summary": "<p>Prepared and packaged bolts and parts according to customer specifications, maintaining strict accuracy and attention to detail.\nInspected components for quality and consistency, ensuring all orders met company standards before shipment.\nCoordinated with team members to meet deadlines and ensure timely order fulfillment, supporting overall operational efficiency.</p>",
+            "highlights": [],
+            "url": "",
+            "years": ""
+        },
+        {
+            "id": "",
+            "name": "5 Star Cleaning Services",
+            "position": "Professional Cleaner",
+            "startDate": "2023-05-01T04:00:00.000Z",
+            "endDate": null,
+            "isWorkingHere": true,
+            "summary": "<p>Delivered professional cleaning services across multiple business settings, maintaining high standards of safety and sanitation.\nEnsured work areas were consistently well-maintained, organized, and compliant with company and client expectations.\nProvided exceptional customer service, addressing client needs promptly and fostering positive professional relationships.</p>",
+            "highlights": [],
+            "url": "",
+            "years": ""
+        }
+    ],
+    "skills": {
+        "technologies": [
+            {
+                "name": "Customer Service",
+                "level": 0
+            },
+            {
+                "name": "Shift Management",
+                "level": 0
+            },
+            {
+                "name": "Vitals",
+                "level": 0
+            },
+            {
+                "name": "Patient Care",
+                "level": 0
+            },
+            {
+                "name": "Communication",
+                "level": 0
+            },
+            {
+                "name": "Sales",
+                "level": 0
+            },
+            {
+                "name": "Leadership",
+                "level": 0
+            },
+            {
+                "name": "Office Management",
+                "level": 0
+            }
+        ]
+    },
+    "education": [
+        {
+            "id": "",
+            "institution": "Wawasee High School",
+            "area": "General Studies",
+            "studyType": "High School Diploma",
+            "startDate": "2011-08-01T04:00:00.000Z",
+            "endDate": "2015-05-01T04:00:00.000Z",
+            "isStudyingHere": false,
+            "gpa": "",
+            "courses": [],
+            "summary": "",
+            "url": ""
+        }
+    ]
+}

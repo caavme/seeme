@@ -1,0 +1,55 @@
+{
+    "basics": {
+        "name": "Skylor Piersall",
+        "label": "Operations Specialist",
+        "email": "skylorcpiersall@gmail.com",
+        "phone": "5743544976",
+        "summary": "<p>Dedicated and versatile professional with experience spanning healthcare, food service management, manufacturing, and operations support. Skilled in team leadership, hands-on production, order fulfillment, and customer service, with a proven ability to adapt to diverse work environments. Recognized for reliability, attention to detail, and a strong work ethic in both independent and collaborative roles.</p>",
+        "objective": "<p>Seeking a challenging position where I can leverage my diverse experience in operations, customer service, and team leadership to contribute to organizational efficiency, growth, and overall success.</p>",
+        "location": {
+            "city": "Cape Coral, FL"
+        }
+    },
+    "work": [
+        {
+            "id": "",
+            "name": "5 Star Cleaning Services",
+            "position": "Professional Cleaner",
+            "startDate": "2023-05-01T04:00:00.000Z",
+            "endDate": null,
+            "isWorkingHere": true,
+            "summary": "<p>Delivered professional cleaning services across multiple business settings, maintaining high standards of safety and sanitation. Ensured work areas were consistently well-maintained, organized, and compliant with company and client expectations. Provided exceptional customer service, addressing client needs promptly and fostering positive professional relationships.</p>",
+            "highlights": [],
+            "url": "",
+            "years": ""
+        },
+        {
+            "id": "",
+            "name": "Brock",
+            "position": "Order Fulfillment Associate",
+            "startDate": "2022-04-08T04:00:00.000Z",
+            "endDate": "2023-05-01T04:00:00.000Z",
+            "isWorkingHere": false,
+            "summary": "<p>Prepared and packaged bolts and parts according to customer specifications, maintaining strict\naccuracy and attention to detail. Inspected components for quality and consistency, ensuring all orders met company standards before shipment. Coordinated with team members to meet deadlines and ensure timely order fulfillment, supporting overall operational efficiency.</p>",
+            "highlights": [],
+            "url": "",
+            "years": ""
+        },
+        {
+            "id": "",
+            "name": "Superior Cleaning",
+            "position": "Professional Cleaner",
+            "startDate": "2020-12-01T04:00:00.000Z",
+            "endDate": "2022-04-08T04:00:00.000Z",
+            "isWorkingHere": false,
+            "summary": "<p></p>",
+            "highlights": [],
+            "url": "",
+            "years": ""
+        }
+    ],
+    "skills": {
+        "technologies": []
+    },
+    "education": []
+}

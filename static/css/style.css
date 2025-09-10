@@ -1,0 +1,303 @@
+/* Modern Resume Builder Styles */
+:root {
+    --primary-color: #2563eb;
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --secondary-color: #64748b;
+    --success-color: #059669;
+    --warning-color: #d97706;
+    --danger-color: #dc2626;
+    --light-color: #f8fafc;
+    --dark-color: #1e293b;
+    --white-color: #ffffff;
+    --accent-color: #8b5cf6;
+    --border-radius: 12px;
+    --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --transition: all 0.3s ease;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* Header Styles */
+.header-gradient {
+    background: var(--primary-gradient);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.main-content {
+    min-height: calc(100vh - 80px);
+    padding-top: 0;
+}
+
+/* Card Enhancements */
+.card {
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    border: none;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+    .card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+.card-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+}
+
+.bg-gradient-primary {
+    background: var(--primary-gradient) !important;
+}
+
+/* Form Enhancements */
+.form-control, .form-select {
+    border-radius: 8px;
+    border: 2px solid #e2e8f0;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    background-color: #ffffff;
+}
+
+    .form-control:focus, .form-select:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.1);
+    }
+
+.form-control-lg {
+    padding: 1rem 1.25rem;
+    font-size: 1.1rem;
+    border-radius: 10px;
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Button Enhancements */
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+    text-transform: none;
+    transition: var(--transition);
+    border: none;
+    padding: 0.5rem 1.5rem;
+}
+
+.btn-lg {
+    padding: 0.875rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 10px;
+}
+
+.btn-primary {
+    background: var(--primary-gradient);
+    border: none;
+    color: white;
+}
+
+    .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+    }
+
+.btn-success {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    border: none;
+}
+
+    .btn-success:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+    }
+
+.btn-danger {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    border: none;
+}
+
+.btn-outline-primary, .btn-outline-danger {
+    border-width: 2px;
+    font-weight: 500;
+}
+
+/* Navigation Pills */
+.nav-pills .nav-link {
+    border-radius: 0;
+    color: var(--dark-color);
+    font-weight: 500;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+    transition: var(--transition);
+    background: transparent;
+}
+
+    .nav-pills .nav-link:first-child {
+        border-top-left-radius: var(--border-radius);
+        border-top-right-radius: var(--border-radius);
+    }
+
+    .nav-pills .nav-link:last-child {
+        border-bottom-left-radius: var(--border-radius);
+        border-bottom-right-radius: var(--border-radius);
+        border-bottom: none;
+    }
+
+    .nav-pills .nav-link.active {
+        background: var(--primary-gradient);
+        color: white;
+        border-color: transparent;
+    }
+
+    .nav-pills .nav-link:hover:not(.active) {
+        background: var(--light-color);
+        color: var(--primary-color);
+    }
+
+/* Work Experience Items */
+.work-item {
+    transition: var(--transition);
+    border-left-width: 4px !important;
+}
+
+    .work-item:hover {
+        border-left-color: var(--accent-color) !important;
+        transform: translateX(5px);
+    }
+
+/* Skills Badges */
+.skill-badge .badge {
+    font-size: 0.9rem !important;
+    padding: 0.6rem 1rem !important;
+    border-radius: 25px;
+    background: var(--primary-gradient) !important;
+    transition: var(--transition);
+}
+
+    .skill-badge .badge:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+
+.btn-close-white {
+    opacity: 0.8;
+    transition: var(--transition);
+}
+
+    .btn-close-white:hover {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+
+/* Modal Enhancements */
+.modal-content {
+    border-radius: var(--border-radius);
+    border: none;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+/* Toast Styling */
+.toast {
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    border: none;
+}
+
+/* Loading States */
+.btn-loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+    .btn-loading::after {
+        content: "";
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+        margin-left: 0.5rem;
+        border: 2px solid transparent;
+        border-top-color: currentColor;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive Improvements */
+@media (max-width: 768px) {
+    .card-body {
+        padding: 1.5rem;
+    }
+
+    .btn-lg {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .work-item:hover {
+        transform: none;
+    }
+}
+
+/* Dark mode support (for future enhancement) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --light-color: #1e293b;
+        --dark-color: #f8fafc;
+    }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Focus indicators for accessibility */
+.btn:focus, .form-control:focus, .nav-link:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #1d4ed8;
+    }
