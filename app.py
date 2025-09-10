@@ -49,6 +49,55 @@ class ResumeWebApp:
         }
         self.current_filename = None
     
+    def sort_work_by_date(self):
+        """Sort work experience by start date (most recent first)"""
+        if "work" not in self.resume_data or not self.resume_data["work"]:
+            return
+        
+        def get_sort_date(work_item):
+            """Extract date for sorting - prioritize current jobs, then by start date"""
+            # Current jobs (isWorkingHere = True) should appear first
+            if work_item.get("isWorkingHere", False):
+                return "9999-12-31"  # Future date to sort current jobs first
+            
+            # For ended jobs, use start date
+            start_date = work_item.get("startDate", "")
+            if start_date:
+                try:
+                    # Extract just the date part (YYYY-MM-DD)
+                    return start_date.split("T")[0]
+                except:
+                    return "1900-01-01"  # Default old date for invalid dates
+            
+            return "1900-01-01"  # Default for jobs with no start date
+        
+        # Sort work experience: current jobs first, then by start date (newest first)
+        self.resume_data["work"].sort(key=get_sort_date, reverse=True)
+    
+    def sort_education_by_date(self):
+        """Sort education by start date (most recent first)"""
+        if "education" not in self.resume_data or not self.resume_data["education"]:
+            return
+        
+        def get_education_sort_date(edu_item):
+            """Extract date for sorting education"""
+            # Current studies should appear first
+            if edu_item.get("isStudyingHere", False):
+                return "9999-12-31"  # Future date to sort current studies first
+            
+            # For completed education, use start date
+            start_date = edu_item.get("startDate", "")
+            if start_date:
+                try:
+                    return start_date.split("T")[0]
+                except:
+                    return "1900-01-01"
+            
+            return "1900-01-01"
+        
+        # Sort education: current studies first, then by start date (newest first)
+        self.resume_data["education"].sort(key=get_education_sort_date, reverse=True)
+    
     def get_available_resumes(self):
         """Get list of available resume files"""
         resume_files = []
@@ -89,6 +138,11 @@ class ResumeWebApp:
             with open(filepath, "r", encoding="utf-8") as file:
                 self.resume_data = json.load(file)
                 self.current_filename = filename
+                
+                # Sort work and education by date after loading
+                self.sort_work_by_date()
+                self.sort_education_by_date()
+                
                 return True
         except Exception as e:
             print(f"Error loading resume {filename}: {e}")
@@ -96,6 +150,10 @@ class ResumeWebApp:
     
     def save_resume(self, filename=None, save_as=False):
         """Save resume data to JSON file"""
+        # Sort work and education by date before saving
+        self.sort_work_by_date()
+        self.sort_education_by_date()
+        
         if filename is None and self.current_filename is None:
             # Generate filename based on name and timestamp
             name = self.resume_data.get('basics', {}).get('name', 'Resume')
@@ -179,10 +237,14 @@ class ResumeWebApp:
             for i, existing_work in enumerate(self.resume_data["work"]):
                 if existing_work.get("id") == work_id:
                     self.resume_data["work"][i] = work_item
+                    # Sort after updating
+                    self.sort_work_by_date()
                     return
         
         # Add new item
         self.resume_data["work"].append(work_item)
+        # Sort after adding
+        self.sort_work_by_date()
     
     def delete_work_experience(self, work_id):
         """Delete work experience by ID"""
@@ -191,6 +253,8 @@ class ResumeWebApp:
                 work for work in self.resume_data["work"] 
                 if work.get("id") != work_id
             ]
+            # Re-sort after deletion (though order shouldn't change)
+            self.sort_work_by_date()
     
     def add_education(self, education_data):
         """Add or update education entry"""
@@ -217,10 +281,14 @@ class ResumeWebApp:
             for i, existing_education in enumerate(self.resume_data["education"]):
                 if existing_education.get("id") == education_id:
                     self.resume_data["education"][i] = education_item
+                    # Sort after updating
+                    self.sort_education_by_date()
                     return
         
         # Add new item
         self.resume_data["education"].append(education_item)
+        # Sort after adding
+        self.sort_education_by_date()
     
     def delete_education(self, education_id):
         """Delete education entry by ID"""
@@ -229,6 +297,8 @@ class ResumeWebApp:
                 education for education in self.resume_data["education"] 
                 if education.get("id") != education_id
             ]
+            # Re-sort after deletion
+            self.sort_education_by_date()
     
     def add_skill(self, skill_name):
         """Add a skill"""
@@ -273,6 +343,10 @@ class ResumeWebApp:
     def create_pdf(self):
         """Create modern, ATS-compliant PDF and return as bytes"""
         try:
+            # Sort work and education by date before PDF generation
+            self.sort_work_by_date()
+            self.sort_education_by_date()
+            
             buffer = io.BytesIO()
             
             # Create document with refined margins
@@ -436,7 +510,7 @@ class ResumeWebApp:
                 story.append(Paragraph(clean_objective, content_style))
                 story.append(Spacer(1, 10))
             
-            # Work Experience
+            # Work Experience (already sorted)
             work_items = self.resume_data.get("work", [])
             if work_items:
                 story.append(Paragraph("PROFESSIONAL EXPERIENCE", section_style))
@@ -473,7 +547,7 @@ class ResumeWebApp:
                     
                     story.append(Spacer(1, 8))
             
-            # Education
+            # Education (already sorted)
             education_items = self.resume_data.get("education", [])
             if education_items:
                 story.append(Paragraph("EDUCATION", section_style))
@@ -555,6 +629,9 @@ resume_app = ResumeWebApp()
 
 @app.route('/')
 def index():
+    # Sort work and education by date before rendering
+    resume_app.sort_work_by_date()
+    resume_app.sort_education_by_date()
     return render_template('index.html', 
                          resume_data=resume_app.resume_data, 
                          current_filename=resume_app.current_filename)
@@ -679,6 +756,9 @@ def delete_skill(skill_index):
 
 @app.route('/api/data')
 def get_data():
+    # Sort work and education by date before sending to frontend
+    resume_app.sort_work_by_date()
+    resume_app.sort_education_by_date()
     return jsonify(resume_app.resume_data)
 
 @app.route('/api/export/pdf')

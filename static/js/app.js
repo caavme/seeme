@@ -58,6 +58,36 @@ function initializeEventListeners() {
     });
 }
 
+// Sort work experience by date (current jobs first, then by start date desc)
+function sortWorkByDate(workItems) {
+    return workItems.sort((a, b) => {
+        // Current jobs (isWorkingHere = true) should appear first
+        if (a.isWorkingHere && !b.isWorkingHere) return -1;
+        if (!a.isWorkingHere && b.isWorkingHere) return 1;
+        
+        // If both are current or both are past, sort by start date (newest first)
+        const dateA = a.startDate ? new Date(a.startDate) : new Date('1900-01-01');
+        const dateB = b.startDate ? new Date(b.startDate) : new Date('1900-01-01');
+        
+        return dateB - dateA; // Descending order (newest first)
+    });
+}
+
+// Sort education by date (current studies first, then by start date desc)
+function sortEducationByDate(educationItems) {
+    return educationItems.sort((a, b) => {
+        // Current studies should appear first
+        if (a.isStudyingHere && !b.isStudyingHere) return -1;
+        if (!a.isStudyingHere && b.isStudyingHere) return 1;
+        
+        // If both are current or both are past, sort by start date (newest first)
+        const dateA = a.startDate ? new Date(a.startDate) : new Date('1900-01-01');
+        const dateB = b.startDate ? new Date(b.startDate) : new Date('1900-01-01');
+        
+        return dateB - dateA; // Descending order (newest first)
+    });
+}
+
 // Populate form fields with loaded data
 function populateFormFields() {
     if (!resumeData || Object.keys(resumeData).length === 0) {
@@ -93,7 +123,7 @@ function populateFormFields() {
     updateEducationDisplay();
 }
 
-// Update work experience display
+// Update work experience display (sorted by date)
 function updateWorkExperienceDisplay() {
     const workList = document.getElementById('workExperienceList');
     if (!workList) return;
@@ -111,8 +141,11 @@ function updateWorkExperienceDisplay() {
         return;
     }
 
+    // Sort work items by date before displaying
+    const sortedWorkItems = sortWorkByDate([...workItems]);
+
     workList.innerHTML = '';
-    workItems.forEach(work => {
+    sortedWorkItems.forEach(work => {
         const workElement = document.createElement('div');
         workElement.className = 'work-item card mb-3 border-start border-primary border-4';
         workElement.setAttribute('data-id', work.id);
@@ -120,11 +153,17 @@ function updateWorkExperienceDisplay() {
         const startDate = work.startDate ? work.startDate.substring(0, 10) : 'Not specified';
         const endDate = work.endDate ? work.endDate.substring(0, 10) : 'Present';
         
+        // Add visual indicator for current job
+        const currentBadge = work.isWorkingHere ? '<span class="badge bg-success ms-2">Current</span>' : '';
+        
         workElement.innerHTML = `
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-start mb-2">
                     <div>
-                        <h5 class="card-title text-primary mb-1">${work.position || 'Unknown Position'}</h5>
+                        <h5 class="card-title text-primary mb-1">
+                            ${work.position || 'Unknown Position'}
+                            ${currentBadge}
+                        </h5>
                         <h6 class="card-subtitle text-muted">${work.name || 'Unknown Company'}</h6>
                     </div>
                     <div class="btn-group">
@@ -183,7 +222,7 @@ function updateSkillsDisplay() {
     });
 }
 
-// Update education display
+// Update education display (sorted by date)
 function updateEducationDisplay() {
     const educationList = document.getElementById('educationList');
     if (!educationList) return;
@@ -201,8 +240,11 @@ function updateEducationDisplay() {
         return;
     }
 
+    // Sort education items by date before displaying
+    const sortedEducationItems = sortEducationByDate([...educationItems]);
+
     educationList.innerHTML = '';
-    educationItems.forEach(education => {
+    sortedEducationItems.forEach(education => {
         const educationElement = document.createElement('div');
         educationElement.className = 'education-item card mb-3 border-start border-success border-4';
         educationElement.setAttribute('data-id', education.id);
@@ -218,6 +260,9 @@ function updateEducationDisplay() {
         } else if (education.studyType) {
             degreeInfo = education.studyType;
         }
+        
+        // Add visual indicator for current studies
+        const currentBadge = education.isStudyingHere ? '<span class="badge bg-success ms-2">Current</span>' : '';
         
         let coursesHtml = '';
         if (education.courses && education.courses.length > 0) {
@@ -238,7 +283,10 @@ function updateEducationDisplay() {
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-start mb-2">
                     <div>
-                        <h5 class="card-title text-success mb-1">${education.institution || 'Unknown Institution'}</h5>
+                        <h5 class="card-title text-success mb-1">
+                            ${education.institution || 'Unknown Institution'}
+                            ${currentBadge}
+                        </h5>
                         ${degreeInfo ? `<h6 class="card-subtitle text-muted mb-1">${degreeInfo}</h6>` : ''}
                         ${education.gpa ? `<small class="text-muted">GPA: ${education.gpa}</small>` : ''}
                     </div>
