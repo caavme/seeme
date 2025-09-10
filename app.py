@@ -341,7 +341,7 @@ class ResumeWebApp:
             return date_string[:10] if len(date_string) >= 10 else date_string
     
     def create_pdf(self):
-        """Create modern, ATS-compliant PDF and return as bytes"""
+        """Create compact, modern, ATS-compliant PDF with reduced spacing"""
         try:
             # Sort work and education by date before PDF generation
             self.sort_work_by_date()
@@ -349,10 +349,10 @@ class ResumeWebApp:
             
             buffer = io.BytesIO()
             
-            # Create document with refined margins
+            # Create document with tighter margins for more content
             doc = SimpleDocTemplate(buffer, pagesize=letter,
-                                  rightMargin=54, leftMargin=54,
-                                  topMargin=54, bottomMargin=54)
+                                  rightMargin=36, leftMargin=36,  # Reduced from 54
+                                  topMargin=36, bottomMargin=36)  # Reduced from 54
             
             # Get default styles and create custom ones
             styles = getSampleStyleSheet()
@@ -363,115 +363,115 @@ class ResumeWebApp:
             text_color = colors.HexColor('#2c3e50')       # Dark text
             light_gray = colors.HexColor('#7f8c8d')       # Light gray for dates
             
-            # Create modern paragraph styles using ATS-friendly fonts
+            # Create compact paragraph styles with reduced spacing
             base_font = 'Helvetica'  # ATS-compliant standard font
             
-            # Header styles
+            # Compact header styles
             name_style = ParagraphStyle(
-                'ModernName',
+                'CompactName',
                 parent=styles['Heading1'],
                 fontName='Helvetica-Bold',
-                fontSize=26,
-                spaceAfter=8,
+                fontSize=22,                # Reduced from 26
+                spaceAfter=4,              # Reduced from 8
                 alignment=TA_CENTER,
                 textColor=primary_color,
-                leading=30
+                leading=24                 # Reduced from 30
             )
             
             title_style = ParagraphStyle(
-                'ModernTitle', 
+                'CompactTitle', 
                 parent=styles['Normal'],
                 fontName='Helvetica',
-                fontSize=14,
-                spaceAfter=6,
+                fontSize=12,               # Reduced from 14
+                spaceAfter=3,              # Reduced from 6
                 alignment=TA_CENTER,
                 textColor=accent_color,
-                leading=16
+                leading=14                 # Reduced from 16
             )
             
             contact_style = ParagraphStyle(
-                'ModernContact',
+                'CompactContact',
                 parent=styles['Normal'],
                 fontName='Helvetica',
                 fontSize=10,
-                spaceAfter=18,
+                spaceAfter=8,              # Reduced from 18
                 alignment=TA_CENTER,
                 textColor=text_color,
-                leading=12
+                leading=11                 # Reduced from 12
             )
             
-            # Section header style
+            # Compact section header style
             section_style = ParagraphStyle(
-                'ModernSection',
+                'CompactSection',
                 parent=styles['Heading2'],
                 fontName='Helvetica-Bold',
-                fontSize=14,
-                spaceBefore=20,
-                spaceAfter=10,
+                fontSize=12,               # Reduced from 14
+                spaceBefore=10,            # Reduced from 20
+                spaceAfter=6,              # Reduced from 10
                 textColor=primary_color,
-                leading=16
+                leading=14                 # Reduced from 16
             )
             
-            # Job title style
+            # Compact job title style
             job_title_style = ParagraphStyle(
-                'ModernJobTitle',
+                'CompactJobTitle',
                 parent=styles['Normal'],
                 fontName='Helvetica-Bold',
-                fontSize=12,
-                spaceBefore=12,
-                spaceAfter=2,
+                fontSize=11,               # Reduced from 12
+                spaceBefore=6,             # Reduced from 12
+                spaceAfter=1,              # Reduced from 2
                 textColor=primary_color,
-                leading=14
+                leading=12                 # Reduced from 14
             )
             
-            # Company and date style
+            # Compact company and date style
             company_style = ParagraphStyle(
-                'ModernCompany',
+                'CompactCompany',
                 parent=styles['Normal'],
                 fontName='Helvetica',
-                fontSize=11,
-                spaceAfter=2,
+                fontSize=10,               # Reduced from 11
+                spaceAfter=1,              # Reduced from 2
                 textColor=accent_color,
-                leading=13
+                leading=11                 # Reduced from 13
             )
             
             date_style = ParagraphStyle(
-                'ModernDate',
+                'CompactDate',
                 parent=styles['Normal'],
                 fontName='Helvetica-Oblique',
                 fontSize=9,
-                spaceAfter=8,
+                spaceAfter=4,              # Reduced from 8
                 textColor=light_gray,
-                leading=11
+                leading=10                 # Reduced from 11
             )
             
-            # Content text style
+            # Compact content text style
             content_style = ParagraphStyle(
-                'ModernContent',
+                'CompactContent',
                 parent=styles['Normal'],
                 fontName='Helvetica',
-                fontSize=10,
-                spaceAfter=12,
+                fontSize=9,                # Reduced from 10
+                spaceAfter=6,              # Reduced from 12
                 textColor=text_color,
-                leading=13,
+                leading=11,                # Reduced from 13
                 alignment=TA_JUSTIFY
             )
             
-            # Skills style
+            # Compact skills style
             skills_style = ParagraphStyle(
-                'ModernSkills',
+                'CompactSkills',
                 parent=styles['Normal'],
                 fontName='Helvetica',
-                fontSize=10,
-                spaceAfter=12,
+                fontSize=9,                # Reduced from 10
+                spaceAfter=6,              # Reduced from 12
                 textColor=text_color,
-                leading=14
+                leading=12                 # Reduced from 14
             )
             
             story = []
             basics = self.resume_data.get("basics", {})
             
-            # Header Section
+            # Compact header section
             if basics.get("name"):
                 story.append(Paragraph(basics["name"].upper(), name_style))
             else:
@@ -493,22 +493,22 @@ class ResumeWebApp:
             if contact_info:
                 story.append(Paragraph("  •  ".join(contact_info), contact_style))
             
-            # Add separator space
-            story.append(Spacer(1, 20))
+            # Minimal separator space
+            story.append(Spacer(1, 6))     # Reduced from 20
             
             # Professional Summary
             if basics.get("summary") and basics["summary"].strip():
                 story.append(Paragraph("PROFESSIONAL SUMMARY", section_style))
                 clean_summary = self.clean_html(basics["summary"])
                 story.append(Paragraph(clean_summary, content_style))
-                story.append(Spacer(1, 10))
+                story.append(Spacer(1, 4))  # Reduced from 10
             
             # Career Objective
             if basics.get("objective") and basics["objective"].strip():
                 story.append(Paragraph("CAREER OBJECTIVE", section_style))
                 clean_objective = self.clean_html(basics["objective"])
                 story.append(Paragraph(clean_objective, content_style))
-                story.append(Spacer(1, 10))
+                story.append(Spacer(1, 4))  # Reduced from 10
             
             # Work Experience (already sorted)
             work_items = self.resume_data.get("work", [])
@@ -545,7 +545,7 @@ class ResumeWebApp:
                         else:
                             story.append(Paragraph(clean_summary, content_style))
                     
-                    story.append(Spacer(1, 8))
+                    story.append(Spacer(1, 4))  # Reduced from 8
             
             # Education (already sorted)
             education_items = self.resume_data.get("education", [])
@@ -578,7 +578,7 @@ class ResumeWebApp:
                         date_text = f"{start_date} - {end_date}"
                         story.append(Paragraph(date_text, date_style))
                     
-                    # GPA
+                    # GPA (on same line as dates to save space)
                     if education.get("gpa"):
                         story.append(Paragraph(f"GPA: {education['gpa']}", content_style))
                     
@@ -587,16 +587,16 @@ class ResumeWebApp:
                         clean_summary = self.clean_html(education["summary"])
                         story.append(Paragraph(clean_summary, content_style))
                     
-                    # Relevant courses
+                    # Relevant courses (more compact formatting)
                     if education.get("courses") and len(education["courses"]) > 0:
                         valid_courses = [course.strip() for course in education["courses"] if course.strip()]
                         if valid_courses:
-                            courses_text = f"Relevant Coursework: {', '.join(valid_courses)}"
+                            courses_text = f"Coursework: {', '.join(valid_courses)}"
                             story.append(Paragraph(courses_text, content_style))
                     
-                    story.append(Spacer(1, 8))
+                    story.append(Spacer(1, 4))  # Reduced from 8
             
-            # Technical Skills
+            # Technical Skills (more compact)
             skills = self.resume_data.get("skills", {})
             technologies = skills.get("technologies", [])
             if technologies:
@@ -604,15 +604,15 @@ class ResumeWebApp:
                 
                 skill_names = [tech.get("name", "") for tech in technologies if tech.get("name")]
                 if skill_names:
-                    # Group skills in a clean format
+                    # More compact skill formatting
                     skills_text = " • ".join(skill_names)
                     story.append(Paragraph(skills_text, skills_style))
             
-            # Footer space
-            story.append(Spacer(1, 20))
+            # Minimal footer space
+            story.append(Spacer(1, 8))      # Reduced from 20
             
             # If no content exists, add a placeholder
-            if len(story) <= 5:  # Only header and separator elements
+            if len(story) <= 3:  # Only header elements
                 story.append(Paragraph("This resume is empty. Please add your information using the web interface.", content_style))
             
             doc.build(story)
