@@ -4,7 +4,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>49f2c5ff-329c-4258-9cd5-873bddc0a890</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>resume_builder.py</StartupFile>
+    <StartupFile>
+    </StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,22 +22,17 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="app.py" />
-    <Compile Include="resume_builder.py" />
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\js\app.js" />
     <Content Include="README.md" />
-    <Content Include="static\js\app.js" />
-    <Content Include="templates\base.html" />
-    <Content Include="templates\index.html" />
+    <Content Include="base.html" />
+    <Content Include="index.html" />
     <Content Include="requirements.txt" />
-    <Content Include="static\css\style.css" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="templates\" />
-    <Folder Include="static\" />
-    <Folder Include="static\css\" />
-    <Folder Include="static\js\" />
+    <Folder Include="assets\" />
+    <Folder Include="assets\css\" />
+    <Folder Include="assets\js\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
